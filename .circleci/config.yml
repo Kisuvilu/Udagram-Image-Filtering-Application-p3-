@@ -2,7 +2,7 @@
 #version: 2:1
 
  
-on:
+#on:
  push:
    branches: [ "main"]
  pull_request:
