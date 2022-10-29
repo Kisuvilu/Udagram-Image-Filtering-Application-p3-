@@ -5,7 +5,7 @@ metadata:
 data:
 POSTGRES_USERNAME: kisuvilu
 POSTGRES_PASSWORD: Dmk.0704970993
-POSTGRES_HOST: dmk.cgka5ng9tmss.us-east-1.rds.amazonaws.com
+POSTGRES_HOST: kisuvilu.c2tvljks947h.us-east-1.rds.amazonaws.com
 POSTGRES_DB: postgres
 AWS_BUCKET: my-2022-dev
 AWS_REGION: us-east-1
