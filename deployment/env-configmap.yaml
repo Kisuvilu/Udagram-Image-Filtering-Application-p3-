@@ -11,4 +11,4 @@ AWS_BUCKET: my-2022-dev
 AWS_REGION: us-east-1
 AWS_PROFILE: default
 JWT_SECRET: testing
-URL: arn:aws:s3:::my-2022-dev
+URL: URL=http://localhost:8100
