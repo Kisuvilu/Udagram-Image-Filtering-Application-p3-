@@ -1,24 +1,102 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: backend-feed
+  labels:
+    service: backend-feed-pod
+  name: backend-feed-pod
 spec:
+  replicas: 2
   selector:
     matchLabels:
-      run: backend-feed
-  replicas: 2
+      service: backend-feed-pod
   template:
     metadata:
       labels:
-        run: backend-feed
+        service: backend-feed
     spec:
       containers:
-      - name: backend-feed
-        image: docker.io/kisuvilu/udagram-api-feed:v1
-        ports:
-        - containerPort: 80
-        resources:
-          limits:
-            cpu: 500m
+        -image: docker.io/kisuvilu/udagram-api-feed:v1
+         name: backend-api-feed
+         imagePullPolicy: Always
+         resources:
           requests:
-            cpu: 200m
+            memory: "512Mi"
+            cpu: "250m"
+          limits:
+            memory: "1524Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8080
+        # command: ["sleep", "3600"]
+        env:
+          # Define the environment variable
+          - name:  POSTGRES_USERNAME
+            valueFrom:
+              secretKeyRef:
+                name: my-secret
+                key: postgres_username
+          - name: POSTGRES_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: my-secret
+                key: postgres_password
+          - name: POSTGRES_DB
+            valueFrom:
+              configMapKeyRef:
+                name: my-configmap
+                key: postgres_db
+          - name: POSTGRES_HOST
+            valueFrom:
+              configMapKeyRef:
+                name: my-configmap
+                key: postgres_host
+          - name: AWS_REGION
+            valueFrom:
+              configMapKeyRef:
+                name: my-configmap
+                key: aws_region
+          - name: AWS_PROFILE
+            valueFrom:
+              secretKeyRef:
+                name: my-aws-secret
+                key: aws_access_key_id
+          - name: AWS_ACCESS_KEY_ID
+            valueFrom:
+              secretKeyRef:
+                name: my-aws-secret
+                key: aws_access_key_id
+          - name: AWS_SECRET_ACCESS_KEY
+            valueFrom:
+              secretKeyRef:
+                name: my-aws-secret
+                key: aws_secret_access_key
+          - name: AWS_BUCKET
+            valueFrom:
+              configMapKeyRef:
+                name: my-configmap
+                key: aws_bucket
+          - name: JWT_SECRET
+            valueFrom:
+              secretKeyRef:
+                name: my-secret
+                key: jwt_secret
+          - name: URL
+            valueFrom:
+              configMapKeyRef:
+                name: my-configmap
+                key: url
+      restartPolicy: Always
+        
+        
+
+
+
+
+
+
+
+
+
+
+
+
