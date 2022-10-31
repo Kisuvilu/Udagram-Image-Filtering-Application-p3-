@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    service: frontend-pod
+  name: frontend-pod
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      service: frontend-pod
+  template:
+    metadata:
+      labels:
+        service: frontend-pod
+    spec:
+      containers:
+      - image: docker.io/frontend/udagram-frontend
+        name: udagram-frontend
+        imagePullPolicy: Always   
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "1024Mi"
+            cpu: "500m"
+        ports: 
+        -container: 80
+      #  command: ["sleep", "3600"]  
+      restartPolicy: Always  
+

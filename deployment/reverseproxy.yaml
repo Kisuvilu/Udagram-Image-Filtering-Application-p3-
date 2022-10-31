@@ -1,25 +1,32 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: reverseproxy
+  labels:
+    service: reverseproxy-pod
+  name: reverseproxy-pod
 spec:
+  replicas: 1
   selector:
     matchLabels:
-      run: reverseproxy
-  replicas: 2
+      service: reverseproxy-pod
   template:
     metadata:
       labels:
-        run: reverseproxy
+        service: reverseproxy-pod
     spec:
       containers:
-      - name: reverseproxy
-        image: docker.io/kisuvilu/reverseproxy:v1
-        ports:
-        - containerPort: 80
+      - image: docker.io/kisuvilu/reverseproxy:v1
+        name: reverseproxy
+        imagePullPolicy: Always
         resources:
-          limits:
-            cpu: 1000m
           requests:
-            cpu: 500m
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "1024Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8080
+      #  command: ["sleep", "3600"] 
+      restartpolicy: Always
 
