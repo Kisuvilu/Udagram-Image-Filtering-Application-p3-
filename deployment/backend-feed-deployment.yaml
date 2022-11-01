@@ -12,13 +12,13 @@ spec:
   template:
     metadata:
       labels:
-        service: backend-feed
+        service: backend-feed-pod
     spec:
       containers:
-        -image: docker.io/kisuvilu/udagram-api-feed:v1
-         name: backend-api-feed
-         imagePullPolicy: Always
-         resources:
+      - image: docker.io/kisuvilu/udagram-api-feed:v1
+        name: backend-api-feed
+        imagePullPolicy: Always
+        resources:
           requests:
             memory: "512Mi"
             cpu: "250m"

@@ -15,9 +15,9 @@ spec:
         service: frontend-pod
     spec:
       containers:
-      - image: docker.io/frontend/udagram-frontend
+      - image: kisuvilu/udagram-frontend:v8
         name: udagram-frontend
-        imagePullPolicy: Always   
+        imagePullPolicy: Always        
         resources:
           requests:
             memory: "64Mi"
@@ -25,8 +25,7 @@ spec:
           limits:
             memory: "1024Mi"
             cpu: "500m"
-        ports: 
-        -container: 80
-      #  command: ["sleep", "3600"]  
-      restartPolicy: Always  
-
+        ports:
+        - containerPort: 80
+      #  command: ["sleep", "3600"]
+      restartPolicy: Always

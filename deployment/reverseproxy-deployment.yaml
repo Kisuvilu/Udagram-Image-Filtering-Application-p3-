@@ -12,10 +12,10 @@ spec:
   template:
     metadata:
       labels:
-        service: reverseproxy-pod
+        service:  reverseproxy-pod
     spec:
       containers:
-      - image: docker.io/kisuvilu/reverseproxy:v1
+      - image: kisuvilu/reverseproxy:v1
         name: reverseproxy
         imagePullPolicy: Always
         resources:
@@ -27,6 +27,5 @@ spec:
             cpu: "500m"
         ports:
         - containerPort: 8080
-      #  command: ["sleep", "3600"] 
-      restartpolicy: Always
-
+      #  command: ["sleep", "3600"]
+      restartPolicy: Always
