@@ -7,4 +7,4 @@ data:
   postgres_db: postgres
   aws_bucket: my-2022-dev
   aws_region: us-east-1
-  url: http://localhost:8100
+  url: d253ccbb60ad4ce4ae04c16182a103d-815932747.us-east-1.elb.amazonaws.com
