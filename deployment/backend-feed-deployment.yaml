@@ -15,7 +15,7 @@ spec:
         service: backend-feed-pod
     spec:
       containers:
-      - image: kisuvilu/udagram-api-feed:v1
+      - image: kisuvilu/udagram-api-feed:v2
         name: udagram-api-feed
         imagePullPolicy: Always
         resources:
@@ -30,7 +30,7 @@ spec:
         # command: ["sleep", "3600"]
         env:
           # Define the environment variable
-          - name:  POSTGRES_USERNAME
+          - name: POSTGRES_USERNAME
             valueFrom:
               secretKeyRef:
                 name: my-secret
@@ -59,7 +59,7 @@ spec:
             valueFrom:
               secretKeyRef:
                 name: my-aws-secret
-                key: aws_profile
+                key: aws_access_key_id
           - name: AWS_ACCESS_KEY_ID
             valueFrom:
               secretKeyRef:
