@@ -15,7 +15,7 @@ spec:
         service: backend-feed-pod
     spec:
       containers:
-      - image: docker.io/kisuvilu/udagram-api-feed:v1
+      - image: kisuvilu/udagram-api-feed:v1
         name: backend-api-feed
         imagePullPolicy: Always
         resources:
@@ -59,7 +59,7 @@ spec:
             valueFrom:
               secretKeyRef:
                 name: my-aws-secret
-                key: aws_access_key_id
+                key: aws_profile
           - name: AWS_ACCESS_KEY_ID
             valueFrom:
               secretKeyRef:
