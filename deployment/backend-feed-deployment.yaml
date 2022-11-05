@@ -15,7 +15,7 @@ spec:
         service: backend-feed-pod
     spec:
       containers:
-      - image: kisuvilu/udagram-api-feed:v2
+      - image: kisuvilu/udagram-api-feed:v1
         name: udagram-api-feed
         imagePullPolicy: Always
         resources:
