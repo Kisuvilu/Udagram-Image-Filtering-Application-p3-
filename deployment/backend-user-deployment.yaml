@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    service: backend-feed-pod
+    service: backend-user-pod
   name: backend-user-pod
 spec:
   replicas: 1

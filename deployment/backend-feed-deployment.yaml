@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - image: kisuvilu/udagram-api-feed:v1
-        name: backend-api-feed
+        name: udagram-api-feed
         imagePullPolicy: Always
         resources:
           requests:
