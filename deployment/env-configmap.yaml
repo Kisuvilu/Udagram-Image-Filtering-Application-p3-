@@ -3,8 +3,8 @@ kind: ConfigMap
 metadata:
   name: my-configmap
 data:
-  postgres_host: kisuvilu.c2tvljks947h.us-east-1.rds.amazonaws.com
+  postgres_host: uda.ccalsoledtyf.us-east-1.rds.amazonaws.com
   postgres_db: postgres
-  aws_bucket: my-2022-dev
+  aws_bucket: myawsbucket2040
   aws_region: us-east-1
-  url: d253ccbb60ad4ce4ae04c16182a103d-815932747.us-east-1.elb.amazonaws.com
+  url: https://61846C448FD063D1447C42935D6DF453.gr7.us-east-1.eks.amazonaws.com
