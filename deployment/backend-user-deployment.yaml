@@ -15,7 +15,7 @@ spec:
         service: backend-user-pod
     spec:
       containers:
-      - image: kisuvilu/udagram-api-user:v2
+      - image: kisuvilu/udagram-api-user:v1
         name: udagram-api-user
         imagePullPolicy: Always
         resources:
